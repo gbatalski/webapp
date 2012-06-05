@@ -31,3 +31,7 @@ bash "run-maven" do
     cp -rf target/*.war "#{node["jetty"]["webapp_dir"]}"   
    EOH
 end
+
+service "jetty" do
+  action: restart
+end
