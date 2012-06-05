@@ -33,5 +33,5 @@ bash "run-maven" do
 end
 
 service "jetty" do
-  action: restart
+  action :restart
 end
