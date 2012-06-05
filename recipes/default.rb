@@ -20,8 +20,8 @@ git work_dir do
 	repository "#{node[:webapp][:giturl]}"
 	revision branch_name                                   
 	action :sync                                     
-	user   "#{node[:jetty][:user]}"                                    
-	group  "#{node[:jetty][:group]}"                                   
+#	user   "#{node[:jetty][:user]}"                                    
+#	group  "#{node[:jetty][:group]}"                                   
 end
 
 bash "run-maven" do
