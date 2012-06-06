@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- File: web-app/WEB-INF/jetty-web.xml -->
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://jetty.mortbay.org/configure.dtd">
+<Configure class="<%= node[:webapp][:appClass] %>">
+    <Set name="contextPath"><%= node[:webapp][:contextPath] %></Set>
+</Configure>

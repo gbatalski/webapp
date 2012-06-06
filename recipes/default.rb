@@ -24,6 +24,23 @@ git work_dir do
 #	group  "#{node[:jetty][:group]}"                                   
 end
 
+
+template work_dir+"/src/main/webapp/WEB-INF/jetty-web.xml" do
+   source "jetty-web.xml.erb"
+#  owner "root"
+#  group "root"
+  mode 0644
+  backup false 
+end
+
+template work_dir+"/src/main/resources/storageConfig.yaml" do
+   source "storageConfig.yaml.erb"
+#  owner "root"
+#  group "root"
+  mode 0644
+  backup false 
+end
+
 bash "run-maven" do
    cwd work_dir
    code <<-EOH

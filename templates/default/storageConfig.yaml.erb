@@ -1,0 +1,5 @@
+!!example.guice.module.CassandraModule$CassandraStorage
+cluster:<%=node[:webapp][:cluster]%>
+hosts: [<%=node[:webapp][:hosts]%>]
+keyspace: <%=node[:webapp][:keyspace]%>
+port: <%=node[:webapp][:port]%>
