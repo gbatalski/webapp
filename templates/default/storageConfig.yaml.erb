@@ -4,5 +4,6 @@ hosts: [<%=node[:webapp][:hosts]%>]
 keyspace: <%=node[:webapp][:keyspace]%>
 port: <%=node[:webapp][:port]%>
 replicationFactor: <%=node[:webapp][:replication_factor]%>
-consistencyLevel: <%=node[:webapp][:consistency_level]%>
+writeConsistencyLevel: <%=node[:webapp][:write_consistency_level]%>
+readConsistencyLevel: <%=node[:webapp][:read_consistency_level]%>
 
