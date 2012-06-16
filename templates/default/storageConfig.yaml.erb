@@ -3,3 +3,6 @@ cluster: <%=node[:webapp][:cluster]%>
 hosts: [<%=node[:webapp][:hosts]%>]
 keyspace: <%=node[:webapp][:keyspace]%>
 port: <%=node[:webapp][:port]%>
+replicationFactor: <%=node[:webapp][:replication_factor]%>
+consistencyLevel: <%=node[:webapp][:consistency_level]%>
+
