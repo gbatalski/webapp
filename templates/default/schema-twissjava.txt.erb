@@ -1,0 +1,56 @@
+/*This file contains the <%=node[:webapp][:keyspace]%> Keyspace that can be created using the
+cassandra-cli command line interface as follows.
+
+bin/cassandra-cli -host localhost --file /path/to/schema-twissjava.txt
+
+The cassandra-cli includes online help that explains the statements below. You can
+accessed the help without connecting to a running cassandra instance by starting the
+client and typing "help;"
+*/
+
+create keyspace <%=node[:webapp][:keyspace]%>
+    with strategy_options = {replication_factor:<%=node[:webapp][:replication_factor]%>}
+    and placement_strategy = 'org.apache.cassandra.locator.SimpleStrategy';
+
+update keyspace <%=node[:webapp][:keyspace]%> with strategy_options = {replication_factor:<%=node[:webapp][:replication_factor]%>};
+
+use <%=node[:webapp][:keyspace]%>;
+
+create column family User
+    with comparator = UTF8Type
+    and default_validation_class = UTF8Type
+    and column_metadata = [{
+        column_name : password,
+        validation_class : UTF8Type}
+    ];
+
+create column family Userline
+    with comparator = UTF8Type
+    and default_validation_class = UTF8Type;
+
+create column family Followers
+    with comparator = UTF8Type
+    and default_validation_class = UTF8Type;
+
+create column family MiscCounts
+    with comparator = UTF8Type
+    and default_validation_class = CounterColumnType
+    and replicate_on_write = true;
+
+create column family Tweet
+    with comparator = UTF8Type
+    and column_metadata = [{
+        column_name : body,
+        validation_class : UTF8Type},
+    {    
+        column_name : username,
+        validation_class : UTF8Type}
+    ];
+
+create column family Friends
+    with comparator = UTF8Type
+    and default_validation_class = UTF8Type;
+
+create column family Timeline
+    with comparator = LongType
+    and default_validation_class = UTF8Type;

@@ -41,6 +41,14 @@ template work_dir+"/src/main/resources/storageConfig.yaml" do
   backup false 
 end
 
+template work_dir+"/src/main/resources/schema-twissjava.txt" do
+   source "schema-twissjava.txt.erb"
+#  owner "root"
+#  group "root"
+  mode 0644
+  backup false 
+end
+
 bash "run-maven" do
    cwd work_dir
    code <<-EOH
